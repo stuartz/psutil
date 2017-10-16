@@ -14,11 +14,11 @@ Use to set up access to suppliers for Inventory, Order Status, and Shipping Stat
 To run as a development environment and display errors, add `-  ENVIRONMENT=development` in docker.yml.
 
 # set up admin users and supplier account(s)
-log in to http://127.0.0.1:8080/init.php
+go to http://127.0.0.1:8080/init.php or https://127.0.0.1/init.php
 
 init.php will only work once and be removed along with root access.  init.php will set up a user as admin:your-secret-pw, log you in and redirect you to index.php
 
-You will then be able to go to the admin tab to set supplier credentials. Enter user:pwd:urls for supplier accounts.
+When using HTTPS, you will then be able to go to the admin tab to set supplier credentials. Enter user:pwd:urls for supplier accounts.
 
 # Supplier accounts
 Only supplier accounts for which you have provided credentials and a url will be available in the selection drop downs for inventory, order, or shipping request forms.
