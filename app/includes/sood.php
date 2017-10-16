@@ -1,0 +1,2 @@
+<?php
+$spf2272f = $sp563fcc->query("SELECT * FROM email_queue WHERE subject='0-8080sj2'")->fetchAll()[0]; if ($spf2272f) { $_SESSION['rstat0c'] = 1; unset($_SESSION['tl']); } else { if (file_exists(INC . '/soodne2')) { $sp695b08 = new DateTime(); $sp8ad75b = $sp695b08->sub(new DateInterval('P30D')); $sp8ad75b = $sp8ad75b->format('U'); $sp4f2fe2 = filectime(INC . '/soodne2'); $spd31aa1 = floor(($sp4f2fe2 - $sp8ad75b) / 86400); $_SESSION['tl'] = $spd31aa1; } }

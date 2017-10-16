@@ -1,0 +1,2 @@
+<?php
+define('UPS', "http://wwwapps.ups.com/etracking/tracking.cgi?AcceptUPSLicenseAgreement=yes&TypeOfInquiryNumber=T&InquiryNumber1="); define('FEDEX', "https://www.fedex.com/apps/fedextrack/?action=track&cntry_code=us_english&tracknumbers="); define('USPS', "https://tools.usps.com/go/TrackConfirmAction?qtc_tLabels1=");

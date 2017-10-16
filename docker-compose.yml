@@ -1,0 +1,58 @@
+version: '2'
+services:
+  psutil:
+    image: stuartz/psutil:1.0.0
+    container_name: psutil
+    hostname: psutil
+    ports:
+      - "127.0.0.1:8088:80"
+    environment:
+      - TERM=xterm
+      - ENVIRONMENT=production
+      #- ENVIRONMENT=development    # to view soapcall errors
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}   #or enter one here and below
+      - DATABASE_HOST=db
+      - SMTP_HOST=smtp.office365.com #or your smtp server
+      - SMTP_PASSWORD=YourPassword
+      - SMTP_FROM=EmailAccountForPassword
+      - SMTP_PORT=587  # or your tls port
+    links:  # comment out and change DATABASE_HOST above to use your own.  See README/md
+      - db
+    restart: always
+    logging:
+      options:
+        max-size: "100k"
+        max-file: "20"
+
+  db:
+    image: library/mariadb
+    container_name: mariadb
+    # comment out data volume if not desiring persistence
+    volumes:
+      - /data:/var/lib/mysql:z   # for persistent storage of db.  See README.md
+      - ./db_schema:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}   #or enter one here and above
+    restart: always
+    logging:
+      options:
+        max-size: "100k"
+        max-file: "20"
+
+  nginx-ssl:
+    image: stuartz/nginx-ssl-proxy
+    container_name: nginx-ssl
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TERM=xterm
+    #volumes:  # add your company certs to ./nginx/conf/  see README.md
+    #  - ./nginx/conf:/etc/nginx/external/:z
+    restart: always
+    logging:
+      options:
+        max-size: "100k"
+        max-file: "20"
+    links:
+      - psutil:proxy
