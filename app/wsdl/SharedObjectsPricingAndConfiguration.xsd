@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/" xmlns:ns2="http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/" xmlns:ns3="http://www.codesynthesis.com/xmlns/xsstl" targetNamespace="http://www.promostandards.org/WSDL/PricingAndConfiguration/1.0.0/SharedObjects/" elementFormDefault="qualified">
+	<xsd:import namespace="http://www.codesynthesis.com/xmlns/xsstl" schemaLocation="iso3166-country-code.xsd"/>
+	<xsd:simpleType name="dimensionUomEnum">
+		<xsd:annotation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MM"/>
+			<xsd:enumeration value="CM"/>
+			<xsd:enumeration value="MR"/>
+			<xsd:enumeration value="IN"/>
+			<xsd:enumeration value="FT"/>
+			<xsd:enumeration value="YD"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="weightUomEnum">
+		<xsd:annotation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ME"/>
+			<xsd:enumeration value="KG"/>
+			<xsd:enumeration value="OZ"/>
+			<xsd:enumeration value="LB"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="wsVersion">
+		<xsd:annotation>
+			<xsd:documentation>
+                The Standard Version of the Web Service being referenced
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="id">
+		<xsd:annotation>
+			<xsd:documentation>
+                The customer Id or any other agreed upon Id.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="password">
+		<xsd:annotation>
+			<xsd:documentation>The password associated with the Id
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="localizationCountry">
+		<xsd:annotation>
+			<xsd:documentation>ISO 3166-1 Alpha 2 code for Country</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:maxLength value="2"/>
+				<xsd:minLength value="2"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="localizationLanguage">
+		<xsd:annotation>
+			<xsd:documentation>ISO 639-1 Alpha 2 code for Language</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="2"/>
+				<xsd:maxLength value="2"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ErrorMessage">
+		<xsd:annotation>
+			<xsd:documentation>
+                Response for any error requiring notification to requestor
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="code" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>
+                            Response for any error requiring notification to requestor
+                        </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="description">
+					<xsd:annotation>
+						<xsd:documentation>
+                            Response for any error requiring notification to requestor</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:token">
+							<xsd:minLength value="1"/>
+							<xsd:maxLength value="256"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="productId">
+		<xsd:annotation>
+			<xsd:documentation>The product ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="chargeId" type="xsd:int">
+		<xsd:annotation>
+			<xsd:documentation>The charge ID</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="chargeName">
+		<xsd:annotation>
+			<xsd:documentation>The Charge name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="chargeDescription">
+		<xsd:annotation>
+			<xsd:documentation>The charge description</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="256"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationId" type="xsd:int">
+		<xsd:annotation>
+			<xsd:documentation>The Decoration ID</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="locationId" type="xsd:int">
+		<xsd:annotation>
+			<xsd:documentation>The location ID</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="decorationName">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration name
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationGeometry">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration geometry
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationHeight" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration height
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">
+				<xsd:fractionDigits value="4"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationWidth" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration width
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">
+				<xsd:fractionDigits value="4"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationDiameter" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration diameter
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">
+				<xsd:fractionDigits value="4"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationUom">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration UOM
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationUnitsUom">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration UOM
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationUnitsIncludedUom" nillable="1">
+		<xsd:annotation>
+			<xsd:documentation>
+                The decoration UOM
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="locationName">
+		<xsd:annotation>
+			<xsd:documentation>
+                The location name
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="colorId">
+		<xsd:annotation>
+			<xsd:documentation>The color ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="colorName">
+		<xsd:annotation>
+			<xsd:documentation>The color name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="partId">
+		<xsd:annotation>
+			<xsd:documentation>The part ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="partDescription">
+		<xsd:annotation>
+			<xsd:documentation>The part Description</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="1024"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="partGroupDescription">
+		<xsd:annotation>
+			<xsd:documentation>The part Description</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="1024"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="partGroup">
+		<xsd:annotation>
+			<xsd:documentation>The part Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="nextPartGroup">
+		<xsd:annotation>
+			<xsd:documentation>The next part Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ratio">
+		<xsd:annotation>
+			<xsd:documentation>The part ratio</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:decimal">
+				<xsd:fractionDigits value="4"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="defaultPart" type="xsd:boolean" nillable="true">
+		<xsd:annotation>
+			<xsd:documentation>Is default part</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="partGroupRequired">
+		<xsd:annotation>
+			<xsd:documentation>Is part group required</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:boolean"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="fobId">
+		<xsd:annotation>
+			<xsd:documentation>The fob ID</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="maxDecoration" type="xsd:int">
+		<xsd:annotation>
+			<xsd:documentation>The max decorations</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="minDecoration" type="xsd:int">
+		<xsd:annotation>
+			<xsd:documentation>The min decorations</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="decorationUnitsMax">
+		<xsd:annotation>
+			<xsd:documentation>This is the max number of decoration units for this decoration/location combination.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:token">
+				<xsd:minLength value="1"/>
+				<xsd:maxLength value="64"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="locationRank" type="xsd:int" nillable="1">
+		<xsd:annotation>
+			<xsd:documentation>The location rank</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="defaultLocation">
+		<xsd:annotation>
+			<xsd:documentation>The default location</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:boolean"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="decorationsIncluded">
+		<xsd:annotation>
+			<xsd:documentation>Number of decorations included</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:int"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="priceType">
+		<xsd:simpleType>
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="List"/>
+				<xsd:enumeration value="Net"/>
+				<xsd:enumeration value="Customer"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="currency">
+		<xsd:simpleType>
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="USD"/>
+				<xsd:enumeration value="CAD"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="configurationType">
+		<xsd:simpleType>
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="DECORATED"/>
+				<xsd:enumeration value="BLANK"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>
