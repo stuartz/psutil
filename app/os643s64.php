@@ -80,4 +80,5 @@ if($_SESSION['admin'] != 1)
 
 
 </form>
-<?php  $spe2c7f4 = 'order'; require_once INC . '/footer.php';
+<?php  $spe2c7f4 = 'order'; require_once INC . '/footer.php'; ?>
+

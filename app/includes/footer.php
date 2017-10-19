@@ -1,8 +1,7 @@
 <div id="loader"></div>
 <div id="datacontent"></div>
-</div>
-</div>
 <?php  include "includes/logo.html"; ?>
+</div>
 <!------------ Including jQuery Date UI with CSS -------------->
 <script src="//code.jquery.com/jquery-1.12.3.js"></script>
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
