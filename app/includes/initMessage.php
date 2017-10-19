@@ -10,7 +10,7 @@
     A user admin interface will be added in the future.
     <br><br>Please read the README.md for other options such as setting up emails if you haven't already done so.
     <br><br>Thank you for trying this Shareware version of PSUtilities.  
-    <a href="mailto:criticalcomputingrx@gmail.com?subject=Request%20for%20a%20license&body=I%20would%20like%20a%20license%20for%20PS%20Utilities target="_top"">
+    <a href="mailto:criticalcomputingrx@gmail.com?subject=Request%20for%20a%20license&body=I%20would%20like%20a%20license%20for%20PS%20Utilities" target="_top"">
     Registration</a> is free and will remove the trial warning when following the returned instructions.  
     Your email will only be used to send notices of PS Utilities version updates and updates of supplier services which can be accessed in admin
     by clicking the Update All Endpoints button in Admin.  This will update all WSDL endpoints to current working urls and service version available.
