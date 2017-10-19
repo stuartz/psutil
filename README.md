@@ -5,10 +5,10 @@ Use to set up access to suppliers for Inventory, Order Status, and Shipping Stat
 * clone the repository `git clone https://
 * cd to the root folder
 * mkdir /data for database persistence and set root password: 
-`mkdir /data && export export MYSQL_ROOT_PASSWORD=my-secret-pw `
-* Make any changes in the docker-compose.yml from default as listed below
+`mkdir /data && export MYSQL_ROOT_PASSWORD=my-secret-pw ` (or set it in the docker-compose.yml if running as sudo)
+* Make any changes in the docker-compose.yml from default as listed below **before running**
 * If docker && docker-compose are installed run `docker-compose up -d` from root directory. 
-* Otherwise run `sudo su` then  `cd docker && sh install.sh` after auditing the scripts to install docker && docker-compose on a linux based instance.
+* Otherwise run `sudo su` then  `cd docker && sh install.sh` after auditing the scripts to install docker && docker-compose on a linux based instance.  Then  run `docker-compose up -d`.
 
 To run as a development environment and display errors, set `-  ENVIRONMENT=development` in docker-compose.yml.
 
