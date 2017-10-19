@@ -45,3 +45,6 @@ If you wish to provide your own certificte for ssl, put key.pem, cert.pem, and d
 
 # Development Environment
 Setting `ENVIRONMENT=development` in docker-compose.yml will expose PHP errors and help with trouble shooting soap calls to the services.  Soap calls first attempt to use the WSDL returned. If it fails, it will use a local WSDL and set the location to the endpoint. A final attempt is made if that fails by using the WSDL returned and setting the location to the endpoint.  These attempts will be displayed in the development environment.
+
+# Order Status
+Order Status resonse also includes minimal shipping information for the order if statusID is 75 or 80 such as status or the tracking url if available.
