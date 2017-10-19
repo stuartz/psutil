@@ -20,7 +20,7 @@
 <?php 
 	if($_SESSION['admin'] == 1)
 	{ 
-			echo	'<input type="hidden" value="normal" name="dtype">';
+			echo	'<input id="dtype" type="hidden" value="normal" name="dtype">';
 		}else{ ?>		
 			<tr>
 				<td>Type :
