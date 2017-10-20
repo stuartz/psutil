@@ -47,8 +47,8 @@ services:
       - "443:443"
     environment:
       - TERM=xterm
-    #volumes:  # add your company certs to ./nginx/conf/  see README.md
-    #  - ./nginx/conf:/etc/nginx/external/:z
+    volumes:  # add your company certs to ./nginx/conf/  see README.md
+      - ./nginx/conf:/etc/nginx/external/:z
     restart: always
     logging:
       options:

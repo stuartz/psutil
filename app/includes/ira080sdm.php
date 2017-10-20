@@ -5,6 +5,20 @@
 		<tbody><tr>
         			<td colspan="3" style="background-color:#ffffff;" align="left" valign="top">
                         <div >
+                            <form style="float:right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2JYRGPG5D2488">
+<table>
+<tr><td><input type="hidden" name="on0" value="Level">Level</td></tr><tr><td><select name="os0">
+	<option value="Thank You">Thank You $25.00 USD</option>
+	<option value="Towards Version 2">Towards Version 2 $50.00 USD</option>
+	<option value="Prepay Version 2 (per yr.)">Prepay Version 2 (per yr.) $197.00 USD</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="USD">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
                             <form role="form" action="" method="post">
                                 <input id="op" type="hidden" name="op" value="">
                                 <div class="form-group">
@@ -82,6 +96,7 @@
 
 
                             </form>
+
                             <hr>
 <?php if ($sp263229) { foreach ($sp263229 as $spb443cb) { echo "<p>{$spb443cb}</p>"; } } ?>
 <?php if($sp8ccae7){ echo '<a style="float:right;" href="mailto:criticalcomputingrx@gmail.com?subject=Request%20for%20a%20license&body=I%20would%20like%20a%20license%20for%20PS%20Utilities" target="_top">Registration</a>';}?>
@@ -144,7 +159,7 @@
                     var $div1 = $div = $('<div>');
                     var $label = $('<label>').attr('for', 'compID').text('Company ID:').addClass('col-md-4');
                     var $input = $('<input type="text">').attr({id: 'compID', name: 'company_id',required:'required'}).addClass('col-md-9');
-                    $label.appendTo($div);                    
+                    $label.appendTo($div);
                     $input.appendTo($div);
                     $div.appendTo($div1);
                     $div1.appendTo($('#usercol'));
@@ -152,26 +167,26 @@
                     var $label = $('<label>').attr('for', 'compN').text('Company Name:').addClass('col-md-4');
                     var $input = $('<input type="text">')
                         .attr({id: 'compN', name: 'companyNew',required:'required'}).addClass('col-md-9');
-                    $label.appendTo($div);                    
+                    $label.appendTo($div);
                     $input.appendTo($div);
                     $div.appendTo($div1);
                     $div1.appendTo($('#usercol'));
                     $div = $('#invUrlLabel').parent();
                     var $label = $('<label>').attr('for', 'urlv').text('Inventory Version:').addClass('col-md-6');
                     var $input = $('<input type="text">').attr({id: 'urlv', name: 'invVersion',placeholder: 'ie. 1.0.0'}).addClass('col-md-12');
-                    $label.appendTo($div);                    
+                    $label.appendTo($div);
                     $input.appendTo($div);
                     $div = $('#statusUrlLabel').parent();
                     var $label = $('<label>').attr('for', 'urlv').text('Order Status Version:').addClass('col-md-6');
                     var $input = $('<input type="text">').attr({id: 'urlv', name: 'statusVersion',placeholder: 'ie. 1.0.0'}).addClass('col-md-12');
-                    $label.appendTo($div);                    
+                    $label.appendTo($div);
                     $input.appendTo($div);
                     $div = $('#shippingUrlLabel').parent();
                     var $label = $('<label>').attr('for', 'urlv').text('Shipping Status Version:').addClass('col-md-6');
                     var $input = $('<input type="text">').attr({id: 'urlv', name: 'shippingVersion',placeholder: 'ie. 1.0.0'}).addClass('col-md-12');
-                    $label.appendTo($div);                    
+                    $label.appendTo($div);
                     $input.appendTo($div);
-                     
+
                 }else if(companyid != '--select one--') {
                     $.post('a46437.php',{op:'info',id:companyid}, function (data) {
                         $("#username").val(data.userName);
@@ -307,4 +322,4 @@
 
         </BODY>
         </HTML>
-<?php 
+<?php
